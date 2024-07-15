@@ -5,8 +5,8 @@ def generate_random_coordinates(num_points, x_range, y_range):
     """지정된 범위 내에서 랜덤 좌표를 생성합니다."""
     coordinates = []
     for _ in range(num_points):
-        x = random.uniform(x_range[0], x_range[1])
-        y = random.uniform(y_range[0], y_range[1])
+        x = random.randint(x_range[0], x_range[1])
+        y = random.randint(y_range[0], y_range[1])
         coordinates.append((x, y))
     return coordinates
 
@@ -14,7 +14,7 @@ def save_to_csv(coordinates, filename="xyrand.csv"):
     """좌표를 CSV 파일로 저장합니다."""
     with open(filename, "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["X", "Y"])  # 헤더 추가
+        writer.writerow(["x", "y"])  # 헤더 추가
         for x, y in coordinates:
             writer.writerow([x, y])
 
